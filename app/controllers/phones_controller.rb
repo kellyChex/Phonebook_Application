@@ -10,7 +10,7 @@ class PhonesController < ApplicationController
       :number => params[:number],
       :contact_id => params[:contact_id])
     if @phone.save
-      render('phones/success.html.erb')
+      redirect_to("/contacts/#{@phone.contact_id}")
     else
       render('phones/new.html.erb')
     end
@@ -24,7 +24,7 @@ class PhonesController < ApplicationController
   def update
     @phone = Phone.find(params[:id])
     if @phone.update(:number => params[:number])
-      render('phones/success.html.erb')
+      redirect_to("/contacts/#{@phone.contact_id}")
     else
       render('phones/edit.html.erb')
     end
@@ -33,7 +33,7 @@ class PhonesController < ApplicationController
   def destroy
     @phone = Phone.find(params[:id])
     @phone.destroy
-    render('phones/destroy.html.erb')
+    redirect_to("/contacts/#{@phone.contact_id}")
   end
 
 end
