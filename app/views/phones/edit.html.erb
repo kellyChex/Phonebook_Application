@@ -15,3 +15,8 @@
   <input id="phone_number" name="number" type="text" value="<%= @phone.number %>">
   <button>Update Phone Number</button>
 </form>
+
+<p><a href="/phones/<%= @phone.id %>"
+  data-confirm="You sure?"
+  data-method="delete"
+  rel="nofollow">Delete Phone Number</a></p>
