@@ -32,8 +32,7 @@ class ContactsController < ApplicationController
 
   def update
     @contact = Contact.find(params[:id])
-    if @contact.update(:name => params[:name],
-      :email => params[:email])
+    if @contact.update(params[:contact])
       flash[:notice] = "Your contact was updated."
       redirect_to("/contacts/#{@contact.id}")
     else

@@ -1,13 +1,6 @@
 <h1>Edit Phone Number</h1>
 
-<% if @phone.errors.any? %>
-<h3>Please fix these errors:</h3>
-<ul>
-  <% @phone.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-  <% end %>
-</ul>
-<% end %>
+<%= render('layouts/errors', :object => @phone) %>
 
 <form action="/phones/<%= @phone.id %>" method="post">
   <input name="_method" type="hidden" value="patch">

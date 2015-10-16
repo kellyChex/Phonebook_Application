@@ -2,19 +2,9 @@
 
 <h1>New contact</h1>
 
-<% if @contact.errors.any? %>
-<h3>Please fix these errors: </h3>
-<ul>
-  <% @contact.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-  <% end %>
-</ul>
-<% end %>
+<%= render('layouts/errors', :object => @contact) %>
 
 <form action="/contacts" method="post">
-  <label for="contact_name">Name</label>
-  <input id="contact_name" name="contact[name]" type="text" value="<%= @contact.name %>">
-  <label for="contact_email">Email</label>
-  <input id="contact_email" name="contact[email]" type="text" value="<%= @contact.email %>">
-  <button>Update Contact</button>
+  <%= render('form') %>
+  <button>Create Contact</button>
 </form>
